@@ -53,6 +53,7 @@ var _default = function _default(superclass) {
 
             _this.setPristine();
 
+            console.log(result, "result");
             return result;
           });
         }
