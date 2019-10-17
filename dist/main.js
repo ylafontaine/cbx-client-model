@@ -27,6 +27,8 @@ var _attribute = _interopRequireDefault(require("./attribute.js"));
 
 var _validation2 = _interopRequireDefault(require("./field-mixins/validation.js"));
 
+var _hasmanyHttp = _interopRequireDefault(require("./field-mixins/hasmany-http.js"));
+
 var _http2 = _interopRequireDefault(require("./field-mixins/http.js"));
 
 var _attributeHttp = _interopRequireDefault(require("./field-mixins/attribute-http.js"));
@@ -93,8 +95,8 @@ exports.BelongsTo = CbxBelongsTo;
 
 var CbxHasMany =
 /*#__PURE__*/
-function (_HttpFieldMixin3) {
-  (0, _inherits2["default"])(CbxHasMany, _HttpFieldMixin3);
+function (_HasManyHttpFieldMixi) {
+  (0, _inherits2["default"])(CbxHasMany, _HasManyHttpFieldMixi);
 
   function CbxHasMany() {
     (0, _classCallCheck2["default"])(this, CbxHasMany);
@@ -102,14 +104,14 @@ function (_HttpFieldMixin3) {
   }
 
   return CbxHasMany;
-}((0, _http2["default"])((0, _validation2["default"])(_association.HasMany)));
+}((0, _hasmanyHttp["default"])((0, _validation2["default"])(_association.HasMany)));
 
 exports.HasMany = CbxHasMany;
 
 var CbxHasOne =
 /*#__PURE__*/
-function (_HttpFieldMixin4) {
-  (0, _inherits2["default"])(CbxHasOne, _HttpFieldMixin4);
+function (_HttpFieldMixin3) {
+  (0, _inherits2["default"])(CbxHasOne, _HttpFieldMixin3);
 
   function CbxHasOne() {
     (0, _classCallCheck2["default"])(this, CbxHasOne);

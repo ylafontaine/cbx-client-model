@@ -60,14 +60,7 @@ var mixin = function mixin(superclass) {
             url: url,
             options: options
           }).then(function (resp) {
-            var result = {
-              raw: resp.data
-            };
-            var data = Array.isArray(resp.data) ? resp.data : resp.data.data;
-            result.data = data.map(function (item) {
-              return new _this2(nullToUndefined(item));
-            });
-            return result;
+            return (0, _helper.parseHttpListResponse)(resp, _this2);
           });
         }
       }, {
@@ -135,7 +128,7 @@ var mixin = function mixin(superclass) {
             url: url,
             options: options
           }).then(function (resp) {
-            _this3.set(nullToUndefined(resp.data));
+            _this3.set((0, _helper.nullToUndefined)(resp.data));
 
             _this3.setPristine();
 
@@ -211,25 +204,5 @@ var mixin = function mixin(superclass) {
   );
 };
 
-var _default = mixin; ////////////////
-
+var _default = mixin;
 exports["default"] = _default;
-
-function nullToUndefined(obj) {
-  var rtn = {};
-  if (obj === null || obj === undefined) return rtn;
-  Object.keys(obj).forEach(function (key) {
-    if (obj[key] === null) {
-      rtn[key] = undefined;
-    } else if (obj[key] instanceof Array) {
-      rtn[key] = obj[key].map(function (item) {
-        return nullToUndefined(item);
-      });
-    } else if (obj[key] instanceof Object) {
-      rtn[key] = nullToUndefined(obj[key]);
-    } else {
-      rtn[key] = obj[key];
-    }
-  });
-  return rtn;
-}
